@@ -1,11 +1,11 @@
 import "dotenv/config";
 
 type Config = {
-    readonly MONGO_URI: string;
+    readonly MONGODB_URI: string;
     readonly PORT: number;
 }
 
 export const config: Config = {
-    MONGO_URI: process.env.MONGO_URI || "",
+    MONGODB_URI: process.env.MONGODB_URI || "",
     PORT: Number(process.env.PORT) || 8000,
 }
