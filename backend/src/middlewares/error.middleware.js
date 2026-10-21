@@ -1,6 +1,6 @@
 import "dotenv/config";
 
-export const errorMiddleware = (error, req, res, next) => {
+export const errorHandler = (error, req, res, next) => {
     const response = {
         message: error.message
     }
