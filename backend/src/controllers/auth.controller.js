@@ -1,4 +1,11 @@
 import userModel from '../models/user.model.js';
+import jwt from 'jsonwebtoken';
+import {config} from '../config/config.js';
+
+async function sendToken(user, res) {
+    const token = jwt.sign({id: user._id}, config.JWT_SECRET, {expiresIn: '1h'});
+}
+
 
 async function register(req, res) {
     const {email, password, contact, fullName} = req.body;
