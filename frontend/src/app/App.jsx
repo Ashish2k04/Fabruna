@@ -1,9 +1,12 @@
-import React from 'react'
+import {RouterProvider} from "react-router";
+import { routes } from "./app.routes";
 import "./App.css"
 
 const App = () => {
   return (
-    <div className='text-red-500'>App</div>
+    <div>
+      <RouterProvider router={routes} />
+    </div>
   )
 }
 
