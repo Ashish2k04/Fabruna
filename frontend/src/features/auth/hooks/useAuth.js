@@ -13,7 +13,10 @@ export const useAuth = () => {
            dispatch(setUser(response.user))
         }
         catch(err){
-           
+            dispatch(setError(err?.response?.data?.message || "Registration failed."))    
+        }
+        finally{
+            dispatch(setLoading(false))
         }
     }
 
