@@ -9,7 +9,6 @@ export const useAuth = () => {
         dispatch(setLoading(true));
         try {
             const response = await register({ email, password, contact, fullName, isSeller })
-            console.log(response.user)
             dispatch(setUser(response.user))
         }
         catch (err) {
