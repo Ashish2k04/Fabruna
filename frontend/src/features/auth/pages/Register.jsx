@@ -105,29 +105,42 @@ const Register = () => {
   };
 
   return (
-    <div className="h-screen w-full bg-[#0a0a0c] text-white font-['Plus_Jakarta_Sans',sans-serif] flex flex-col lg:flex-row overflow-y-auto lg:overflow-hidden selection:bg-[#facc15] selection:text-black">
+    <div className="relative min-h-screen lg:h-screen w-full bg-[#0a0a0c] text-white font-['Plus_Jakarta_Sans',sans-serif] flex flex-col lg:flex-row overflow-y-auto lg:overflow-hidden selection:bg-[#facc15] selection:text-black">
       
       {/* ============================================================== */}
-      {/* LEFT SIDE: Stylish Male Model Showcase (40-45% width)           */}
+      {/* MOBILE ONLY BACKGROUND: Model behind the form with low opacity */}
       {/* ============================================================== */}
-      <section className="relative w-full lg:w-[42%] xl:w-[40%] h-[380px] sm:h-[460px] lg:h-full shrink-0 bg-black overflow-hidden flex flex-col justify-between p-6 sm:p-10 lg:p-12">
+      <div className="absolute inset-0 z-0 lg:hidden overflow-hidden pointer-events-none">
+        <img
+          src="/fabruna_model_left.jpg"
+          alt="Fabruna Fashion Background"
+          className="w-full h-full object-cover object-top opacity-20 filter brightness-[0.7] contrast-[1.15]"
+        />
+        {/* Dark gradient overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0c]/90 via-[#0a0a0c]/85 to-[#0a0a0c]" />
+      </div>
+
+      {/* ============================================================== */}
+      {/* DESKTOP LEFT SIDE: Male Model Showcase (Hidden on mobile)      */}
+      {/* ============================================================== */}
+      <section className="hidden lg:flex relative w-[42%] xl:w-[40%] h-full shrink-0 bg-black overflow-hidden flex-col justify-between p-10 lg:p-12 z-10">
         
-        {/* Model Background Image */}
+        {/* Model Background Image on Desktop */}
         <div className="absolute inset-0 w-full h-full pointer-events-none">
           <img
             src="/fabruna_model_left.jpg"
             alt="Fabruna Men's Fashion Model"
             className="w-full h-full object-cover object-top filter brightness-[0.85] contrast-[1.1] scale-100"
           />
-          {/* Subtle dark vignettes for flawless text contrast */}
+          {/* Subtle dark vignettes for contrast */}
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/50" />
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#0a0a0c] hidden lg:block opacity-70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#0a0a0c] opacity-70" />
         </div>
 
         {/* Brand Logo at Top Left */}
         <div className="relative z-20">
           <Link to="/" className="inline-block group">
-            <span className="text-xl sm:text-2xl font-black tracking-widest text-[#facc15] uppercase font-sans">
+            <span className="text-2xl font-black tracking-widest text-[#facc15] uppercase font-sans">
               FABRUNA<span className="text-[#facc15]">.</span>
             </span>
           </Link>
@@ -135,7 +148,7 @@ const Register = () => {
 
         {/* Editorial Text at Bottom Left */}
         <div className="relative z-20 max-w-sm">
-          <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-extrabold text-white tracking-tight leading-[1.12]">
+          <h2 className="text-3xl lg:text-[40px] font-extrabold text-white tracking-tight leading-[1.12]">
             Define your <br />
             <span className="text-[#facc15]">aesthetic.</span>
           </h2>
@@ -147,12 +160,21 @@ const Register = () => {
       </section>
 
       {/* ============================================================== */}
-      {/* RIGHT SIDE: Compact, Sleek Registration Form (Fits 100vh)       */}
+      {/* RIGHT SIDE (OR FULL ON MOBILE): Registration Form              */}
       {/* ============================================================== */}
-      <section className="w-full lg:w-[58%] xl:w-[60%] flex-1 flex flex-col justify-center items-center px-6 sm:px-12 lg:px-16 xl:px-24 py-8 lg:py-4 bg-[#0a0a0c] relative">
+      <section className="w-full lg:w-[58%] xl:w-[60%] flex-1 flex flex-col justify-center items-center px-6 sm:px-12 lg:px-16 xl:px-24 py-10 lg:py-4 relative z-10">
         
         <div className="w-full max-w-[420px] mx-auto">
           
+          {/* Mobile Brand Logo Header (Visible only on mobile/tablet) */}
+          <div className="lg:hidden mb-6">
+            <Link to="/" className="inline-block">
+              <span className="text-2xl font-black tracking-widest text-[#facc15] uppercase font-sans">
+                FABRUNA<span className="text-[#facc15]">.</span>
+              </span>
+            </Link>
+          </div>
+
           {/* Header */}
           <div className="mb-6 sm:mb-7">
             <p className="text-[11px] sm:text-xs font-bold tracking-[0.2em] text-[#facc15] uppercase mb-1.5">
