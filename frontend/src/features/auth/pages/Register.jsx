@@ -89,10 +89,10 @@ const Register = () => {
 
     try {
       await handleRegister({
-        fullname: formData.fullname.trim(),
+        fullName: formData.fullname.trim(),
         email: formData.email.trim().toLowerCase(),
         password: formData.password,
-        contact: `+91${formData.contact.trim()}`,
+        contact: formData.contact.trim(),
         isSeller: formData.isSeller,
       });
 
@@ -106,7 +106,7 @@ const Register = () => {
 
   return (
     <div className="relative min-h-screen lg:h-screen w-full bg-[#0a0a0c] text-white font-['Plus_Jakarta_Sans',sans-serif] flex flex-col lg:flex-row overflow-y-auto lg:overflow-hidden selection:bg-[#facc15] selection:text-black">
-      
+
       {/* ============================================================== */}
       {/* MOBILE ONLY BACKGROUND: Model behind the form with low opacity */}
       {/* ============================================================== */}
@@ -124,7 +124,7 @@ const Register = () => {
       {/* DESKTOP LEFT SIDE: Male Model Showcase (Hidden on mobile)      */}
       {/* ============================================================== */}
       <section className="hidden lg:flex relative w-[42%] xl:w-[40%] h-full shrink-0 bg-black overflow-hidden flex-col justify-between p-10 lg:p-12 z-10">
-        
+
         {/* Model Background Image on Desktop */}
         <div className="absolute inset-0 w-full h-full pointer-events-none">
           <img
@@ -163,9 +163,9 @@ const Register = () => {
       {/* RIGHT SIDE (OR FULL ON MOBILE): Registration Form              */}
       {/* ============================================================== */}
       <section className="w-full lg:w-[58%] xl:w-[60%] flex-1 flex flex-col justify-center items-center px-6 sm:px-12 lg:px-16 xl:px-24 py-10 lg:py-4 relative z-10">
-        
+
         <div className="w-full max-w-[420px] mx-auto">
-          
+
           {/* Mobile Brand Logo Header (Visible only on mobile/tablet) */}
           <div className="lg:hidden mb-6">
             <Link to="/" className="inline-block">
@@ -206,7 +206,7 @@ const Register = () => {
 
           {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-4" noValidate>
-            
+
             {/* 1. Full Name */}
             <div>
               <label
