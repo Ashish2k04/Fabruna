@@ -96,6 +96,8 @@ const Register = () => {
         isSeller: formData.isSeller,
       });
 
+      navigate("/")
+
       setSuccessMessage('Registration successful! Welcome to Fabruna.');
     } catch (err) {
       setServerError(err?.message || 'Something went wrong during registration.');
