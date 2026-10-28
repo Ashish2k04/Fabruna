@@ -20,7 +20,7 @@ async function sendTokenResponse(user, res, message) {
 }
 
 
-async function register(req, res) {
+async function register(req, res, next) {
     const { email, password, contact, fullName, isSeller } = req.body;
 
     try {
@@ -49,11 +49,8 @@ async function register(req, res) {
         await sendTokenResponse(newUser, res, 'User registered successfully');
     }
     catch (error) {
-        res.status(500).json({
-            message: 'Internal server error',
-            success: false,
-            error: error.message
-        })
+        error.status = 400;
+        next(error)
     }
 }
 
