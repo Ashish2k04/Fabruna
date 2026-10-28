@@ -62,7 +62,7 @@ async function login(req, res, next) {
 
          if(!user){
             return res.status(404).json({
-                message: "User not found with this email.",
+                message: "Invalid email or password.",
                 success: false
             })
          }
@@ -71,7 +71,7 @@ async function login(req, res, next) {
 
          if(!passwordValidation){
             return res.status(400).json({
-                message: "Invalid credentials.",
+                message: "Invalid email or password.",
                 success: false
             })
          }
