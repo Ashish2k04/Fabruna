@@ -54,4 +54,43 @@ async function register(req, res, next) {
     }
 }
 
-export { register };   
+async function login(req, res, next) {
+      const {email, password} = req.body;
+
+      try{
+         const user = await userModel.findOne({email});
+
+         if(!user){
+            return res.status(404).json({
+                message: "User not found with this email.",
+                success: false
+            })
+         }
+
+         const passwordValidation = await userModel.comparePassword(password);
+
+         if(!passwordValidation){
+            return res.status(400).json({
+                message: "Invalid credentials.",
+                success: false
+            })
+         }
+
+         return res.status(200).json({
+            message: "User logged in successfully.",
+            success: true,
+            user: {
+                id: user._id,
+                email: user.email,
+                contact: user.contact,
+                fullName: user.fullName
+            }   
+         })
+      }
+      catch(error){
+        error.status = 400;
+        next(error)
+      }
+}
+
+export { register, login };   
