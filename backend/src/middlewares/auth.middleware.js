@@ -7,4 +7,12 @@ export const authenticateToken  = (req, res, next) => {
     if(!token) {
         return res.status(401).json({message: "Access denied. No token provided."});
     }
+
+    try{
+        const decode = jwt.verify(token, config.JWT_SECRET);
+
+        req.user = decode
+
+        next()
+    }
 }
