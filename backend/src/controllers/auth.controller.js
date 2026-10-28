@@ -67,7 +67,7 @@ async function login(req, res, next) {
             })
          }
 
-         const passwordValidation = await userModel.comparePassword(password);
+         const passwordValidation = await user.comparePassword(password);
 
          if(!passwordValidation){
             return res.status(400).json({
@@ -76,16 +76,7 @@ async function login(req, res, next) {
             })
          }
 
-         return res.status(200).json({
-            message: "User logged in successfully.",
-            success: true,
-            user: {
-                id: user._id,
-                email: user.email,
-                contact: user.contact,
-                fullName: user.fullName
-            }   
-         })
+         await sendTokenResponse(user, res, "User logged in successfully.");
       }
       catch(error){
         error.status = 400;
