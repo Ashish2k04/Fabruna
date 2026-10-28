@@ -11,6 +11,16 @@ export async function register({ email, password, contact, fullName, isSeller })
       return response.data
    }
    catch (err) {
-      console.log("From auth api error: ", err.response?.data);
+      console.log(err.response?.data);
+   }
+}
+
+export async function login({email, password}) {
+   try{
+      const response = await authApi.post("/login", {email, password});
+      return response.data
+   }
+   catch(err){
+      console.log(err.response?.data)
    }
 }
