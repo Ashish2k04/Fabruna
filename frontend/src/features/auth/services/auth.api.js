@@ -7,20 +7,22 @@ const authApi = axios.create({
 
 export async function register({ email, password, contact, fullName, isSeller }) {
    try {
-      const response = await authApi.post("/register", { email, password, contact, fullName, isSeller })
-      return response.data
+      const response = await authApi.post("/register", { email, password, contact, fullName, isSeller });
+      return response.data;
    }
    catch (err) {
       console.log(err.response?.data);
+      throw err;
    }
 }
 
 export async function login({email, password}) {
    try{
       const response = await authApi.post("/login", {email, password});
-      return response.data
+      return response.data;
    }
    catch(err){
-      console.log(err.response?.data)
+      console.log(err.response?.data);
+      throw err;
    }
 }
