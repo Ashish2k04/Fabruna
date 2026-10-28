@@ -119,7 +119,7 @@ const Register = () => {
       {/* ============================================================== */}
       <div className="absolute inset-0 z-0 lg:hidden overflow-hidden pointer-events-none">
         <img
-          src="/fabruna_model_left.jpg"
+          src="/fabruna_model_female.jpg"
           alt="Fabruna Fashion Background"
           className="w-full h-full object-cover object-top opacity-20 filter brightness-[0.7] contrast-[1.15]"
         />
@@ -128,15 +128,15 @@ const Register = () => {
       </div>
 
       {/* ============================================================== */}
-      {/* DESKTOP LEFT SIDE: Male Model Showcase (Hidden on mobile)      */}
+      {/* DESKTOP LEFT SIDE: Female Model Showcase (Hidden on mobile)    */}
       {/* ============================================================== */}
       <section className="hidden lg:flex relative w-[42%] xl:w-[40%] h-full shrink-0 bg-black overflow-hidden flex-col justify-between p-10 lg:p-12 z-10">
 
         {/* Model Background Image on Desktop */}
         <div className="absolute inset-0 w-full h-full pointer-events-none">
           <img
-            src="/fabruna_model_left.jpg"
-            alt="Fabruna Men's Fashion Model"
+            src="/fabruna_model_female.jpg"
+            alt="Fabruna Women's Fashion Model"
             className="w-full h-full object-cover object-top filter brightness-[0.85] contrast-[1.1] scale-100"
           />
           {/* Subtle dark vignettes for contrast */}
