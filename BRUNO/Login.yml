@@ -5,14 +5,14 @@ info:
 
 http:
   method: POST
-  url: http://localhost:3000/api/auth/login?email={{email}}&password={{password}}
-  params:
-    - name: email
-      value: "{{email}}"
-      type: query
-    - name: password
-      value: "{{password}}"
-      type: query
+  url: http://localhost:3000/api/auth/login
+  body:
+    type: json
+    data: |-
+      {
+        "email": "{{email}}",
+        "password": "{{password}}"
+      }
   auth: inherit
 
 settings:
