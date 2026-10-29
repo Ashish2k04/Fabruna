@@ -147,9 +147,11 @@ const Register = () => {
         {/* Brand Logo at Top Left */}
         <div className="relative z-20">
           <Link to="/" className="inline-block group">
-            <span className="text-2xl font-black tracking-widest text-[#facc15] uppercase font-sans">
-              FABRUNA<span className="text-[#facc15]">.</span>
-            </span>
+            <img
+              src="/Fabruna-Logo.png"
+              alt="Fabruna"
+              className="h-10 w-auto object-contain"
+            />
           </Link>
         </div>
 
@@ -176,9 +178,11 @@ const Register = () => {
           {/* Mobile Brand Logo Header (Visible only on mobile/tablet) */}
           <div className="lg:hidden mb-6">
             <Link to="/" className="inline-block">
-              <span className="text-2xl font-black tracking-widest text-[#facc15] uppercase font-sans">
-                FABRUNA<span className="text-[#facc15]">.</span>
-              </span>
+              <img
+                src="/favicon.png"
+                alt="Fabruna"
+                className="h-10 w-auto object-contain"
+              />
             </Link>
           </div>
 
