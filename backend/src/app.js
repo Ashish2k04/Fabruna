@@ -17,6 +17,14 @@ app.use(cors({
 app.use(morgan("dev"));
 app.use(passport.initialize());
 
+passport.use(new GoogleStrategy({
+  clientID: config.GOOGLE_CLIENT_ID,
+  clientSecret: config.GOOGLE_CLIENT_SECRET,
+  callbackURL: "/api/auth/google/callback"
+}, (accessToken, refreshToken, profile, done) => {
+   
+}));
+
 app.get("/", (req, res) => {
   res.send("Hello welcome to the backend server of Fabruna");
 });
