@@ -20,9 +20,9 @@ app.use(passport.initialize());
 passport.use(new GoogleStrategy({
   clientID: config.GOOGLE_CLIENT_ID,
   clientSecret: config.GOOGLE_CLIENT_SECRET,
-  callbackURL: "/api/auth/google/callback"
+  callbackURL: "http://localhost:5173/api/auth/google/callback"
 }, (accessToken, refreshToken, profile, done) => {
-   
+   done(null, profile);
 }));
 
 app.get("/", (req, res) => {
