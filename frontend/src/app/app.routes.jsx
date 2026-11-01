@@ -15,5 +15,9 @@ export const routes = createBrowserRouter([
     {
         element: <Login />,
         path: "/login"
+    },
+    {
+        element: <h1>Welcome to the Dashboard</h1>,
+        path: "/dashboard"
     }
 ]);
