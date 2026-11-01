@@ -3,6 +3,9 @@ import morgan from "morgan";
 import authRouter from "./routes/auth.routes.js";
 import { errorHandler } from "./middlewares/error.middleware.js";
 import cors from "cors";
+import passport from "passport";
+import {Strategy as GoogleStrategy} from "passport-google-oauth20";
+import {config} from "./config/config.js";
 
 const app = express();
 app.use(express.json());
@@ -12,6 +15,7 @@ app.use(cors({
   credentials: true
 }));
 app.use(morgan("dev"));
+app.use(passport.initialize());
 
 app.get("/", (req, res) => {
   res.send("Hello welcome to the backend server of Fabruna");
