@@ -85,7 +85,15 @@ async function login(req, res, next) {
 }
 
 async function googleAuthCallback(req, res, next) {
-    console.log(req.user)
+    const {id, displayName, emails, photos} = req.user;
+    const email = emails[0].value;
+    const photo = photos[0].value;
+
+    const user = await userModel.findOne({email});
+
+    if(!user){
+       
+    }
 
     res.redirect("http://localhost:5173/dashboard");
 }
