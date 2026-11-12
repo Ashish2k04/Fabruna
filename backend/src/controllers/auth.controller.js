@@ -92,8 +92,18 @@ async function googleAuthCallback(req, res, next) {
     const user = await userModel.findOne({email});
 
     if(!user){
-       
+       user = await userModel.create({
+        email,
+        googleId: id,
+        fullName: displayName,
+       })
     }
+
+    const token = jwt.sign({id: user._id}, config.JWT_SECRET, {expiresIn: "7d"});
+
+    res.cookie("token", token);
+
+    
 
     res.redirect("http://localhost:5173/dashboard");
 }
