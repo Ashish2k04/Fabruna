@@ -292,7 +292,7 @@ const Login = () => {
                         <button
                             type="button"
                             onClick={handleGoogleAuth}
-                            className="w-full flex items-center justify-center gap-2.5 bg-zinc-900/80 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 text-zinc-200 hover:text-white py-3 px-4 rounded-sm transition-all duration-200 text-xs font-semibold tracking-wide cursor-pointer"
+                           className="w-full flex items-center justify-center gap-2.5 bg-white hover:bg-[#F8F9FA] border border-[#747775] text-[#1F1F1F] py-3 px-3 rounded-md transition-all duration-200 text-sm leading-5 font-medium cursor-pointer"
                         >
                             <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24">
                                 <path
