@@ -1,4 +1,5 @@
 import productModel from "../models/product.model.js";
+import { uploadToImagekit } from "../services/imagekit.service.js";
 
 async function createProduct(req, res, next){
      try{
