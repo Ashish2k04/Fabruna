@@ -5,11 +5,20 @@ const imagekit = new ImageKit({
     privateKey: config.IMAGEKIT_PRIVATE_KEY
 });
 
-export const uploadToImagekit =  async (buffer) => {
+const uploadToImagekit =  async (buffer) => {
      const response = await imagekit.files.upload({
         file: buffer.toString("base64"),
         fileName: "product.jpg",
         folder: "fabruna/products"
      })
      return response;
+}
+
+const deleteFromImagekit = async (buffer) => {
+    return await imagekit.files.delete(buffer);
+}
+
+export {
+    uploadToImagekit,
+    deleteFromImagekit
 }
