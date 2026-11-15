@@ -5,11 +5,11 @@ const imagekit = new ImageKit({
     privateKey: config.IMAGEKIT_PRIVATE_KEY
 });
 
-const uploadToImagekit =  async (buffer) => {
+const uploadToImagekit =  async ({buffer, fileName, folder = "fabruna"}) => {
      const response = await imagekit.files.upload({
         file: buffer.toString("base64"),
-        fileName: "product.jpg",
-        folder: "fabruna/products"
+        fileName,
+        folder
      })
      return response;
 }
