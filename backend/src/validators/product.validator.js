@@ -19,4 +19,5 @@ export const CreateProductValidator = [
     body('description').notEmpty().withMessage('Description is required').isLength({min: 10}).withMessage('Description must be at least 10 characters long'),
     body('priceAmount').notEmpty().withMessage('Price amount is required').isFloat({gt: 0}).withMessage('Price amount must be a positive number'),
     body('priceCurrency').optional().isIn(['INR', 'USD', 'EUR']).withMessage('Invalid currency. Allowed values are INR, USD, EUR'),
+    productValidations
 ]
