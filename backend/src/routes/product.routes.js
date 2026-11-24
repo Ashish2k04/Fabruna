@@ -6,7 +6,7 @@ import {createProductValidator} from "../validators/product.validator.js";
 
 const productRouter = Router();
 
-productRouter.post("/createProduct", createProductValidator, authenticateSeller, uploadToMulter.array("image", 5), createProduct);
+productRouter.post("/createProduct", authenticateSeller, createProductValidator, uploadToMulter.array("image", 5), createProduct);
 
 
 export default productRouter;
